@@ -52,14 +52,15 @@ function displayRadioInfo() {
   console.log(currentPlay);
 
   radios.innerHTML = currentPlay
-    .map(({ image, liveaudio, name }, index) => {
+    .map(({ image, liveaudio, name, tagline }, index) => {
+      const tagSplice = tagline.substring(0, 70) + "...";
       return `<div class="radio-display-top" id="radios-${index}"  data-set="${index}">
         
         <img src="${image}" alt="" />
         <div id="channels">${name}</div>
       </div>
       <div id="tagLine">
-        <p>Talat innehåll om samhälle, kultur och vetenskap.</p>
+        <p>${tagSplice}</p>
         <audio id="audio-${index}" controls>
           <source src="${liveaudio.url}" type="audio/mpeg" />
         </audio>
@@ -68,5 +69,28 @@ function displayRadioInfo() {
     })
     .join("");
 }
+/* 
+const audioElements = document.querySelectorAll("audio");
+const playButton = document.querySelector(".play");
+const stopButton = document.querySelector(".stop");
 
+playButton.addEventListener("click", playAudio);
+stopButton.addEventListener("click", stopAudio);
+function playAudio() {
+  audioElements.forEach((audio) => {
+    if (!audio.paused) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+  });
+}
+
+function stopAudio() {
+  audioElements.forEach((audio) => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+}
+ */
 radioData();
