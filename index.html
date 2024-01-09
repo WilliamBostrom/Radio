@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio Player</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      h1 {
+        text-align: center;
+        position: absolute;
+        top: 0;
+        margin-left: 20px;
+        font-size: 24px;
+      }
+
+      main {
+        margin: 0 auto;
+        width: 500px;
+        height: 300px;
+        background: peru;
+        border-radius: 15px;
+        margin-top: 60px;
+        position: relative;
+      }
+      .radio-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .speaker-box {
+        margin-top: 20px;
+        height: 220px;
+        width: 220px;
+        border-radius: 50%;
+        background: grey;
+        align-self: center;
+        justify-self: center;
+      }
+      .radio-display {
+        margin-top: 20px;
+        width: 220px;
+        height: 150px;
+        background-color: black;
+        border-radius: 10px;
+      }
+
+      .radio-display-top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      #channels {
+        align-self: center;
+        color: green;
+        font-size: 42px;
+      }
+
+      #tagline {
+        margin-top: 150px;
+      }
+
+      #tagLine p {
+        color: green;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .radio-picker {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .radio-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .play, .Stop {
+        cursor: pointer;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+      .station-picker {
+        
+        display: flex;
+        gap: 10px;
+      }
+
+      #nextBtn, #prevBtn {
+        text-decoration: none;
+        padding: 3px;
+        width: 100px;
+        border: 1px solid black;
+        border-radius: 4px;
+        color: black;
+        background-color: transparent;
+      }
+      img {
+        width: 50px;
+        margin: 5px 0 0 5px;
+        border-radius: 5px;
+        z-index: 2;
+      }
+      audio {
+        width: 180px;
+        height: 20px;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section class="radio-container">
+        <div class="speaker-box"></div>
+        <div class="radio-picker">
+          <div class="radio-display">
+            <div class="radio-display-top">
+              <!-- <img src="/testbild.png" alt="" /> -->
+              <div id="channels">P1</div>
+            </div>
+            <div id="tagLine">
+              <audio controls>
+                <source src="${liveaudio.url}" type="audio/mpeg" />
+              </audio>
+              <p>Talat innehåll om samhälle, kultur och vetenskap.</p>
+            </div>
+          </div>
+          <div class="radio-buttons">
+            <div class="play-music">
+              <button class="play">PLAY</button>
+              <button class="Stop">STOP</button>
+            </div>
+            <div class="station-picker">
+              <button id="prevBtn"  data-set="back"> << Tillbaka</a>
+              <button id="nextBtn"  data-set="next">Nästa >> </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <h1>Chas Radio!</h1>
+    </main>
+
+    <script src="radioplayer.js"></script>
+  </body>
+</html>
